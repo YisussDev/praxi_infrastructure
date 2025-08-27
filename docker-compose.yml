@@ -1,0 +1,19 @@
+services:
+  rabbitmq:
+    extends:
+      file: rabbitmq-server/docker-compose.yml
+      service: rabbitmq
+  redis:
+    extends:
+      file: redis-server/docker-compose.yml
+      service: redis
+  postgres_db:
+    extends:
+      file: postgresql-server/docker-compose.yml
+      service: postgres_db
+volumes:
+  redis_data:
+  postgres_data:
+networks:
+  microservices_network:
+    external: true
